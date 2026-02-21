@@ -56,9 +56,9 @@ export const App: React.FC = () => {
             <div className="block">
               <TodoFilter
                 query={query}
-                setQuery={setQuery}
+                onQueryChange={setQuery}
                 status={status}
-                setStatus={setStatus}
+                onStatusChange={setStatus}
               />
             </div>
 

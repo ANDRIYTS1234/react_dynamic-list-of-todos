@@ -5,6 +5,7 @@ import { Loader } from '../Loader';
 import { getUser } from '../../api';
 import { User } from '../../types/User';
 import { Todo } from '../../types/Todo';
+import cn from 'classnames';
 
 interface TodoModalProps {
   selectedTodo: Todo;
@@ -29,7 +30,7 @@ export const TodoModal: React.FC<TodoModalProps> = ({
   }, [selectedTodo]);
 
   return (
-    <div className={`modal ${selectedTodo ? 'is-active' : ''}`} data-cy="modal">
+    <div className={cn('modal', { 'is-active': selectedTodo })} data-cy="modal">
       <div className="modal-background" />
 
       {loading ? (
@@ -66,7 +67,7 @@ export const TodoModal: React.FC<TodoModalProps> = ({
 
               {' by '}
 
-              <a href={`mailto:${user?.email}`}>{user?.name}</a>
+              {user && <a href={`mailto:${user.email}`}>{user.name}</a>}
             </p>
           </div>
         </div>
